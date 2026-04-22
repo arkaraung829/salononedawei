@@ -1,0 +1,126 @@
+---
+import type { Lang } from '../i18n/utils';
+import { localize } from '../i18n/utils';
+import servicesData from '../data/services.json';
+
+interface Props {
+  lang?: Lang;
+  kioskMode?: boolean;
+}
+
+const { lang = 'en', kioskMode = false } = Astro.props;
+
+const icons: Record<string, string> = {
+  scissors: 'M14.121 14.121L7.05 21.192l-2.172-2.172 7.071-7.071m0 0L3.878 3.879 6.05 1.707l8.071 8.071m0 0l4.243 4.243M10.95 12.343l4.243-4.243m-8.486 8.486l2.172-2.172m4.243-4.243l2.172-2.172',
+  sparkles: 'M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z',
+  heart: 'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z',
+  leaf: 'M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z'
+};
+---
+
+<div
+  id="category-tabs-bar"
+  class:list={[
+    'sticky z-40 bg-cream/95 backdrop-blur-sm border-b border-beige',
+    kioskMode ? 'top-0' : 'top-16 sm:top-20'
+  ]}
+>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex gap-1 overflow-x-auto py-3 scrollbar-hide" id="category-tabs">
+      {servicesData.categories.map((cat, i) => (
+        <a
+          href={`#${cat.id}`}
+          data-category-tab={cat.id}
+          class:list={[
+            'category-tab flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium whitespace-nowrap transition-all min-h-[44px]',
+            i === 0 && 'active'
+          ]}
+        >
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d={icons[cat.icon]} />
+          </svg>
+          {localize(cat.name, lang)}
+        </a>
+      ))}
+    </div>
+  </div>
+</div>
+
+<style>
+  .category-tab {
+    color: var(--color-muted);
+    background: transparent;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+  }
+  .category-tab:hover {
+    color: var(--color-charcoal);
+    background: var(--color-beige);
+  }
+  .category-tab.active {
+    color: white;
+    background: var(--color-gold);
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+</style>
+
+<script>
+  // Scroll-based active tab switching using IntersectionObserver
+  const tabs = document.querySelectorAll('[data-category-tab]');
+  const sections = document.querySelectorAll('[data-category-section]');
+  let isClickScrolling = false;
+
+  // Observe each category section
+  const observer = new IntersectionObserver(
+    (entries) => {
+      if (isClickScrolling) return;
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = (entry.target as HTMLElement).dataset.categorySection;
+          setActiveTab(id!);
+        }
+      });
+    },
+    {
+      rootMargin: '-20% 0px -60% 0px',
+      threshold: 0,
+    }
+  );
+
+  sections.forEach((section) => observer.observe(section));
+
+  function setActiveTab(id: string) {
+    tabs.forEach((tab) => {
+      tab.classList.toggle('active', tab.getAttribute('data-category-tab') === id);
+    });
+    // Scroll active tab into view in the tab bar
+    const activeTab = document.querySelector(`[data-category-tab="${id}"]`);
+    activeTab?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }
+
+  // Click to scroll to section
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', (e) => {
+      e.preventDefault();
+      const id = tab.getAttribute('data-category-tab')!;
+      const section = document.querySelector(`[data-category-section="${id}"]`);
+      if (section) {
+        isClickScrolling = true;
+        setActiveTab(id);
+        const tabBar = document.getElementById('category-tabs-bar');
+        const offset = tabBar ? tabBar.offsetHeight + 16 : 80;
+        const top = section.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+        // Re-enable observer after scroll completes
+        setTimeout(() => { isClickScrolling = false; }, 800);
+      }
+    });
+  });
+</script>

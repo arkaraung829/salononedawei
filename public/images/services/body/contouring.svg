@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg" x1="100%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8F5F0"/>
+      <stop offset="100%" style="stop-color:#D0E8DE"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="48%" r="38%">
+      <stop offset="0%" style="stop-color:#5A9A82;stop-opacity:0.1"/>
+      <stop offset="100%" style="stop-color:#5A9A82;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <ellipse cx="400" cy="288" rx="260" ry="210" fill="url(#glow)"/>
+  <!-- Body silhouette with contour lines -->
+  <g transform="translate(400,260)" stroke="#5A9A82" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Body silhouette -->
+    <path d="M0-50 Q-15-48-18-35 Q-22-20-20-5 Q-25 10-22 25 Q-18 40-15 45" fill="#5A9A82" opacity="0.05"/>
+    <path d="M0-50 Q15-48 18-35 Q22-20 20-5 Q25 10 22 25 Q18 40 15 45" fill="#5A9A82" opacity="0.05"/>
+    <path d="M0-50 Q-15-48-18-35 Q-22-20-20-5 Q-25 10-22 25 Q-18 40-15 45"/>
+    <path d="M0-50 Q15-48 18-35 Q22-20 20-5 Q25 10 22 25 Q18 40 15 45"/>
+    <!-- Contour measurement lines -->
+    <line x1="-30" y1="-35" x2="-18" y2="-35" stroke-width="1.5" opacity="0.4"/>
+    <line x1="-32" y1="-5" x2="-20" y2="-5" stroke-width="1.5" opacity="0.4"/>
+    <line x1="-34" y1="20" x2="-22" y2="20" stroke-width="1.5" opacity="0.4"/>
+    <line x1="18" y1="-35" x2="30" y2="-35" stroke-width="1.5" opacity="0.4"/>
+    <line x1="20" y1="-5" x2="32" y2="-5" stroke-width="1.5" opacity="0.4"/>
+    <line x1="22" y1="20" x2="34" y2="20" stroke-width="1.5" opacity="0.4"/>
+    <!-- Arrows indicating slimming -->
+    <path d="M-35-5 L-30-5 M-32-8 L-30-5 L-32-2" stroke-width="1.5" opacity="0.3"/>
+    <path d="M35-5 L30-5 M32-8 L30-5 L32-2" stroke-width="1.5" opacity="0.3"/>
+  </g>
+  <text x="400" y="385" text-anchor="middle" font-family="Georgia, serif" font-size="18" fill="#2D2D2D" opacity="0.5">Body Contouring</text>
+</svg>

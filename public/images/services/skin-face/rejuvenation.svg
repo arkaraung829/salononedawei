@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#E8DCF0"/>
+      <stop offset="100%" style="stop-color:#F8F2FC"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="46%" r="42%">
+      <stop offset="0%" style="stop-color:#A88BC2;stop-opacity:0.12"/>
+      <stop offset="100%" style="stop-color:#A88BC2;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <ellipse cx="400" cy="280" rx="270" ry="220" fill="url(#glow)"/>
+  <!-- Rejuvenation - face with upward arrows/lifting effect -->
+  <g transform="translate(400,260)" stroke="#9B7CB8" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Face oval -->
+    <ellipse cx="0" cy="0" rx="28" ry="38"/>
+    <!-- Uplifting arrows on sides -->
+    <path d="M-38-10 L-38-30 M-44-24 L-38-30 L-32-24" stroke-width="2" opacity="0.5"/>
+    <path d="M38-10 L38-30 M32-24 L38-30 L44-24" stroke-width="2" opacity="0.5"/>
+    <!-- Central upward arrow -->
+    <path d="M0-45 L0-60 M-6-54 L0-60 L6-54" stroke-width="2" opacity="0.4"/>
+    <!-- Serene features -->
+    <path d="M-12-8 Q-8-12-4-8" stroke-width="2"/>
+    <path d="M4-8 Q8-12 12-8" stroke-width="2"/>
+    <path d="M-6 10 Q0 14 6 10" stroke-width="2"/>
+    <!-- Sparkles -->
+    <circle cx="-30" cy="-40" r="2" fill="#9B7CB8" opacity="0.3"/>
+    <circle cx="30" cy="-42" r="2" fill="#9B7CB8" opacity="0.3"/>
+    <circle cx="0" cy="-68" r="2" fill="#9B7CB8" opacity="0.25"/>
+  </g>
+  <text x="400" y="380" text-anchor="middle" font-family="Georgia, serif" font-size="18" fill="#2D2D2D" opacity="0.5">Rejuvenation</text>
+</svg>

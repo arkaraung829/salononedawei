@@ -1,0 +1,32 @@
+{
+  "testimonials": [
+    {
+      "id": "review-1",
+      "name": { "en": "Aye Thandar", "my": "အေးသန္တာ" },
+      "text": { "en": "Amazing hair coloring service! The stylist understood exactly what I wanted and the result was beautiful. Highly recommend!", "my": "အံ့ဩဖွယ် ဆံပင်အရောင်ဆိုးခြင်း ဝန်ဆောင်မှု! စတိုင်လစ်က ကျွန်မ လိုချင်တာကို အတိအကျ နားလည်ပြီး ရလဒ်က လှပပါတယ်။" },
+      "service": "Hair Coloring",
+      "rating": 5
+    },
+    {
+      "id": "review-2",
+      "name": { "en": "Su Su", "my": "စုစု" },
+      "text": { "en": "Best nail salon in Dawei! The gel nails last so long and the nail art designs are stunning. Love this place!", "my": "ထားဝယ်မှာ အကောင်းဆုံး လက်သည်းဆိုင်! ဂျယ်လ် လက်သည်းက အရမ်းကြာရှည်ခံပြီး ဒီဇိုင်းတွေက လှပပါတယ်။" },
+      "service": "Gel Nails",
+      "rating": 5
+    },
+    {
+      "id": "review-3",
+      "name": { "en": "Myo Myo", "my": "မျိုးမျိုး" },
+      "text": { "en": "The spa package was absolutely wonderful. I felt so relaxed and refreshed after the massage and facial. Will definitely come back!", "my": "စပါ အစီအစဉ်က အရမ်း ကောင်းပါတယ်။ အနှိပ်နဲ့ မျက်နှာကုထုံးပြီးတဲ့နောက် အရမ်း သက်သာလန်းဆန်းသွားပါတယ်။" },
+      "service": "Spa Package",
+      "rating": 5
+    },
+    {
+      "id": "review-4",
+      "name": { "en": "Htet Htet", "my": "ထက်ထက်" },
+      "text": { "en": "Professional service and friendly staff. The machine facial treatment made my skin feel amazing. Great value for the price!", "my": "ပရော်ဖက်ရှင်နယ် ဝန်ဆောင်မှုနဲ့ ဖော်ရွေသော ဝန်ထမ်းများ။ စက် မျက်နှာကုထုံးက အသားအရေကို အရမ်း ကောင်းစေပါတယ်။" },
+      "service": "Machine Treatment",
+      "rating": 5
+    }
+  ]
+}

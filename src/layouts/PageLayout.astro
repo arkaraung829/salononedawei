@@ -1,0 +1,25 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import WhatsAppButton from '../components/WhatsAppButton.astro';
+import type { Lang } from '../i18n/utils';
+
+interface Props {
+  title: string;
+  description?: string;
+  lang?: Lang;
+}
+
+const { title, description, lang = 'en' } = Astro.props;
+const currentPath = Astro.url.pathname;
+---
+
+<BaseLayout title={title} description={description} lang={lang}>
+  <Header lang={lang} currentPath={currentPath} />
+  <main class="pt-16 sm:pt-20">
+    <slot />
+  </main>
+  <Footer lang={lang} />
+  <WhatsAppButton lang={lang} />
+</BaseLayout>

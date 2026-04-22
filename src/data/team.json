@@ -1,0 +1,36 @@
+{
+  "members": [
+    {
+      "id": "stylist-1",
+      "name": { "en": "Lead Stylist", "my": "အဓိက စတိုင်လစ်" },
+      "role": { "en": "Senior Hair Stylist", "my": "အကြီးတန်း ဆံပင်ပညာရှင်" },
+      "bio": { "en": "With over 10 years of experience in hair styling, coloring, and treatment, our lead stylist brings creativity and precision to every client.", "my": "ဆံပင်ပြင်ဆင်ခြင်း၊ အရောင်ဆိုးခြင်း နှင့် ကုထုံးများတွင် ၁၀ နှစ်ကျော် အတွေ့အကြုံဖြင့် ဖောက်သည်တိုင်းအတွက် ဖန်တီးမှုနှင့် တိကျမှုကို ယူဆောင်လာသည်။" },
+      "image": "/images/team/stylist-1.jpg",
+      "specialties": ["hair-coloring", "styling", "straightening"]
+    },
+    {
+      "id": "stylist-2",
+      "name": { "en": "Nail Artist", "my": "လက်သည်း အနုပညာရှင်" },
+      "role": { "en": "Nail Technician", "my": "လက်သည်း ပညာရှင်" },
+      "bio": { "en": "Specializing in gel, acrylic, and intricate nail art designs. Passionate about creating unique looks for every client.", "my": "ဂျယ်လ်၊ အက်ခရစ်လစ် နှင့် ရှုပ်ထွေးသော လက်သည်း ဒီဇိုင်းများတွင် ကျွမ်းကျင်သည်။" },
+      "image": "/images/team/stylist-2.jpg",
+      "specialties": ["gel-nails", "nail-art", "acrylic"]
+    },
+    {
+      "id": "stylist-3",
+      "name": { "en": "Skin Specialist", "my": "အသားအရေ ပညာရှင်" },
+      "role": { "en": "Aesthetician", "my": "အလှအပ ပညာရှင်" },
+      "bio": { "en": "Expert in facial treatments, machine-based therapies, and skin rejuvenation. Dedicated to helping clients achieve healthy, glowing skin.", "my": "မျက်နှာ ကုထုံးများ၊ စက် ကုထုံးများ နှင့် အသားအရေ ပြန်လည်နုပျိုစေခြင်းတွင် ကျွမ်းကျင်သည်။" },
+      "image": "/images/team/stylist-3.jpg",
+      "specialties": ["facials", "machine-treatment", "skin-rejuvenation"]
+    },
+    {
+      "id": "stylist-4",
+      "name": { "en": "Body Therapist", "my": "ခန္ဓာကိုယ် ကုထုံး ပညာရှင်" },
+      "role": { "en": "Massage & Body Therapist", "my": "အနှိပ် နှင့် ခန္ဓာကိုယ် ကုထုံး ပညာရှင်" },
+      "bio": { "en": "Certified massage therapist with expertise in full body treatments, body contouring, and spa therapies.", "my": "ခန္ဓာကိုယ်အပြည့် ကုထုံးများ၊ ခန္ဓာကိုယ် ပုံသွင်းခြင်း နှင့် စပါ ကုထုံးများတွင် ကျွမ်းကျင်သော လက်မှတ်ရ အနှိပ်ပညာရှင်။" },
+      "image": "/images/team/stylist-4.jpg",
+      "specialties": ["massage", "body-contouring", "spa"]
+    }
+  ]
+}

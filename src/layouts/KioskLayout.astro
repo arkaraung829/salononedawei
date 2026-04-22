@@ -1,0 +1,76 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import type { Lang } from '../i18n/utils';
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  title: string;
+  lang?: Lang;
+  activeTab?: 'services' | 'products';
+}
+
+const { title, lang = 'en', activeTab = 'services' } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<BaseLayout title={title} lang={lang} isKiosk={true}>
+  <!-- Minimal top bar -->
+  <div class="bg-charcoal text-white py-3 px-4 text-center">
+    <span class="text-lg font-heading font-bold tracking-tight">
+      Salon One<span class="text-gold"> Dawei</span>
+    </span>
+  </div>
+
+  <!-- Content -->
+  <main class="pb-20">
+    <slot />
+  </main>
+
+  <!-- Bottom tab navigation -->
+  <nav class="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-beige shadow-lg">
+    <div class="flex">
+      <a
+        href="/kiosk/services"
+        class:list={[
+          'flex-1 flex flex-col items-center justify-center py-3 min-h-[60px] transition-colors',
+          activeTab === 'services' ? 'text-gold bg-gold/5' : 'text-muted hover:text-gold'
+        ]}
+      >
+        <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M14.121 14.121L7.05 21.192l-2.172-2.172 7.071-7.071m0 0L3.878 3.879 6.05 1.707l8.071 8.071m0 0l4.243 4.243M10.95 12.343l4.243-4.243" />
+        </svg>
+        <span class="text-xs font-medium">{t('kiosk.services')}</span>
+      </a>
+      <a
+        href="/kiosk/products"
+        class:list={[
+          'flex-1 flex flex-col items-center justify-center py-3 min-h-[60px] transition-colors',
+          activeTab === 'products' ? 'text-gold bg-gold/5' : 'text-muted hover:text-gold'
+        ]}
+      >
+        <svg class="w-6 h-6 mb-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+        </svg>
+        <span class="text-xs font-medium">{t('kiosk.products')}</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Idle Timer -->
+  <script>
+    let timeout: ReturnType<typeof setTimeout>;
+    const IDLE_MS = 120_000;
+    function resetTimer() {
+      clearTimeout(timeout);
+      timeout = setTimeout(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        const firstTab = document.querySelector('[data-category="all"]') as HTMLElement;
+        if (firstTab) firstTab.click();
+      }, IDLE_MS);
+    }
+    ['touchstart', 'mousemove', 'click', 'scroll'].forEach(evt =>
+      document.addEventListener(evt, resetTimer, { passive: true })
+    );
+    resetTimer();
+  </script>
+</BaseLayout>

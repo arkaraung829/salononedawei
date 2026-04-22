@@ -1,0 +1,80 @@
+{
+  "categories": [
+    { "id": "hair-care", "name": { "en": "Hair Care", "my": "ဆံပင် ထိန်းသိမ်းမှု" } },
+    { "id": "skin-care", "name": { "en": "Skin Care", "my": "အသားအရေ ထိန်းသိမ်းမှု" } },
+    { "id": "nail-care", "name": { "en": "Nail Care", "my": "လက်သည်း ထိန်းသိမ်းမှု" } },
+    { "id": "tools", "name": { "en": "Tools & Accessories", "my": "ကိရိယာများ" } }
+  ],
+  "products": [
+    {
+      "id": "prod-shampoo-01",
+      "name": { "en": "Moisturizing Shampoo", "my": "အစိုဓာတ်ပေး ခေါင်းလျှော်ရည်" },
+      "description": { "en": "Gentle cleansing shampoo that hydrates and nourishes dry, damaged hair.", "my": "ခြောက်သွေ့ပျက်စီးနေသော ဆံပင်ကို အစိုဓာတ်ပေး သန့်စင်ပေးသည်။" },
+      "brand": "Professional Care",
+      "category": "hair-care",
+      "price": { "amount": 12000, "currency": "MMK" },
+      "image": "/images/products/shampoo.jpg",
+      "inStock": true
+    },
+    {
+      "id": "prod-conditioner-01",
+      "name": { "en": "Deep Conditioner", "my": "အနက်ရှိုင်း ကွန်ဒီရှင်နာ" },
+      "description": { "en": "Intensive conditioning treatment for silky smooth, manageable hair.", "my": "ပိုးသားလို ချောမွေ့သော ဆံပင်အတွက် အထူး ကွန်ဒီရှင်နာ။" },
+      "brand": "Professional Care",
+      "category": "hair-care",
+      "price": { "amount": 15000, "currency": "MMK" },
+      "image": "/images/products/conditioner.jpg",
+      "inStock": true
+    },
+    {
+      "id": "prod-serum-01",
+      "name": { "en": "Hair Serum", "my": "ဆံပင် ဆီရမ်" },
+      "description": { "en": "Lightweight serum that adds shine and tames frizz without weighing hair down.", "my": "ဆံပင်ကို တောက်ပစေပြီး ဖောင်းကြွမှုကို ထိန်းပေးသည်။" },
+      "brand": "Professional Care",
+      "category": "hair-care",
+      "price": { "amount": 18000, "currency": "MMK" },
+      "image": "/images/products/serum.jpg",
+      "inStock": true
+    },
+    {
+      "id": "prod-face-cream-01",
+      "name": { "en": "Hydrating Face Cream", "my": "အစိုဓာတ်ပေး မျက်နှာ ခရင်မ်" },
+      "description": { "en": "Rich moisturizing cream for all skin types, leaves skin soft and glowing.", "my": "အသားအရေ အမျိုးအစားအားလုံးအတွက် အစိုဓာတ်ပေး ခရင်မ်။" },
+      "brand": "Glow Essentials",
+      "category": "skin-care",
+      "price": { "amount": 22000, "currency": "MMK" },
+      "image": "/images/products/face-cream.jpg",
+      "inStock": true
+    },
+    {
+      "id": "prod-sunscreen-01",
+      "name": { "en": "SPF 50 Sunscreen", "my": "SPF 50 နေကာ" },
+      "description": { "en": "Lightweight, non-greasy sunscreen with broad spectrum SPF 50 protection.", "my": "ပေါ့ပါးပြီး ဆီမပြန်သော SPF 50 နေကာ။" },
+      "brand": "Glow Essentials",
+      "category": "skin-care",
+      "price": { "amount": 16000, "currency": "MMK" },
+      "image": "/images/products/sunscreen.jpg",
+      "inStock": true
+    },
+    {
+      "id": "prod-nail-polish-01",
+      "name": { "en": "Gel Nail Polish Set", "my": "ဂျယ်လ် လက်သည်းဆေး အစုံ" },
+      "description": { "en": "Set of 6 trending gel polish colors with long-lasting formula.", "my": "ကြာရှည်ခံ ဂျယ်လ် လက်သည်းဆေး ၆ ရောင် အစုံ။" },
+      "brand": "NailPro",
+      "category": "nail-care",
+      "price": { "amount": 25000, "currency": "MMK" },
+      "image": "/images/products/nail-polish.jpg",
+      "inStock": true
+    },
+    {
+      "id": "prod-brush-set-01",
+      "name": { "en": "Professional Brush Set", "my": "ပရော်ဖက်ရှင်နယ် ဘရပ်ရှ် အစုံ" },
+      "description": { "en": "Complete set of styling brushes for professional results at home.", "my": "အိမ်တွင် ပရော်ဖက်ရှင်နယ် ရလဒ်များအတွက် ပုံစံဖန်တီးမှု ဘရပ်ရှ် အစုံ။" },
+      "brand": "StyleTools",
+      "category": "tools",
+      "price": { "amount": 20000, "currency": "MMK" },
+      "image": "/images/products/brush-set.jpg",
+      "inStock": false
+    }
+  ]
+}

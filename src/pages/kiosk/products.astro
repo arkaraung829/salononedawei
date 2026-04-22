@@ -1,0 +1,18 @@
+---
+import KioskLayout from '../../layouts/KioskLayout.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import productsData from '../../data/products.json';
+
+const lang = 'en';
+---
+
+<KioskLayout title="Products" lang={lang} activeTab="products">
+  <div class="py-6 px-4 sm:px-6">
+    <h1 class="text-2xl font-heading font-bold text-charcoal text-center mb-6">Beauty Products</h1>
+    <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+      {productsData.products.map(product => (
+        <ProductCard product={product} lang={lang} />
+      ))}
+    </div>
+  </div>
+</KioskLayout>

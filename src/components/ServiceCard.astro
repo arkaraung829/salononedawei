@@ -1,0 +1,83 @@
+---
+import Badge from './Badge.astro';
+import type { Lang } from '../i18n/utils';
+import { localize, useTranslations } from '../i18n/utils';
+
+interface Props {
+  service: {
+    id: string;
+    name: { en: string; my: string };
+    description: { en: string; my: string };
+    duration: number;
+    price: { min: number; max?: number; currency: string };
+    image: string;
+    badge?: string | null;
+  };
+  lang?: Lang;
+  kioskMode?: boolean;
+}
+
+const { service, lang = 'en', kioskMode = false } = Astro.props;
+const t = useTranslations(lang);
+
+function formatPrice(price: { min: number; max?: number; currency: string }): string {
+  const formatter = new Intl.NumberFormat('en-US');
+  if (price.max && price.max !== price.min) {
+    return `${formatter.format(price.min)} - ${formatter.format(price.max)} ${price.currency}`;
+  }
+  return `${formatter.format(price.min)} ${price.currency}`;
+}
+
+const imageSrc = service.image;
+---
+
+<div class:list={['card group', kioskMode && 'text-lg']}>
+  <!-- Image -->
+  <div class="relative aspect-[4/3] bg-beige overflow-hidden">
+    <img
+      src={imageSrc}
+      alt={localize(service.name, lang)}
+      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+      loading="lazy"
+    />
+    {service.badge && (
+      <div class="absolute top-3 right-3 z-10">
+        <Badge type={service.badge as 'popular' | 'new'} />
+      </div>
+    )}
+  </div>
+
+  <!-- Content -->
+  <div class:list={['p-4 sm:p-5', kioskMode && 'p-6']}>
+    <h3 class:list={['font-heading font-semibold text-charcoal mb-1.5', kioskMode ? 'text-xl' : 'text-lg']}>
+      {localize(service.name, lang)}
+    </h3>
+    <p class:list={['text-muted leading-relaxed mb-3 line-clamp-2', kioskMode ? 'text-base' : 'text-sm']}>
+      {localize(service.description, lang)}
+    </p>
+
+    <!-- Duration & Price -->
+    <div class="flex items-center justify-between mb-4">
+      <span class:list={['text-muted flex items-center gap-1.5', kioskMode ? 'text-base' : 'text-sm']}>
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+        {service.duration} {t('services.duration')}
+      </span>
+      <span class:list={['font-semibold text-gold', kioskMode ? 'text-lg' : 'text-sm']}>
+        {formatPrice(service.price)}
+      </span>
+    </div>
+
+    {!kioskMode && (
+      <a
+        href={`https://wa.me/?text=${encodeURIComponent(`I'd like to book: ${localize(service.name, 'en')}`)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-primary w-full text-center"
+      >
+        {t('services.book')}
+      </a>
+    )}
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" style="stop-color:#E5F2EC"/>
+      <stop offset="100%" style="stop-color:#C8E0D5"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="48%" r="40%">
+      <stop offset="0%" style="stop-color:#6BA893;stop-opacity:0.12"/>
+      <stop offset="100%" style="stop-color:#6BA893;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <ellipse cx="400" cy="288" rx="260" ry="210" fill="url(#glow)"/>
+  <!-- Spa package - lotus flower with stones -->
+  <g transform="translate(400,258)" stroke="#6BA893" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Lotus flower -->
+    <path d="M0-45 Q-8-30-5-20 Q0-15 5-20 Q8-30 0-45Z" fill="#6BA893" opacity="0.1" stroke-width="2"/>
+    <path d="M-15-35 Q-18-20-10-15 Q-5-12 0-18 Q-5-25-15-35Z" fill="#6BA893" opacity="0.08" stroke-width="2"/>
+    <path d="M15-35 Q18-20 10-15 Q5-12 0-18 Q5-25 15-35Z" fill="#6BA893" opacity="0.08" stroke-width="2"/>
+    <path d="M-25-25 Q-25-10-15-8 Q-8-6-5-15 Q-10-20-25-25Z" fill="#6BA893" opacity="0.06" stroke-width="2"/>
+    <path d="M25-25 Q25-10 15-8 Q8-6 5-15 Q10-20 25-25Z" fill="#6BA893" opacity="0.06" stroke-width="2"/>
+    <!-- Stacked spa stones -->
+    <ellipse cx="0" cy="18" rx="28" ry="10" fill="#6BA893" opacity="0.08"/>
+    <ellipse cx="0" cy="18" rx="28" ry="10"/>
+    <ellipse cx="0" cy="8" rx="22" ry="8" fill="#6BA893" opacity="0.06"/>
+    <ellipse cx="0" cy="8" rx="22" ry="8"/>
+    <ellipse cx="0" cy="0" rx="16" ry="6" fill="#6BA893" opacity="0.04"/>
+    <ellipse cx="0" cy="0" rx="16" ry="6"/>
+  </g>
+  <text x="400" y="385" text-anchor="middle" font-family="Georgia, serif" font-size="18" fill="#2D2D2D" opacity="0.5">Spa Package</text>
+</svg>

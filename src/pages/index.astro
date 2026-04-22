@@ -1,0 +1,86 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Hero from '../components/Hero.astro';
+import CategoryQuickLinks from '../components/CategoryQuickLinks.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import TestimonialCard from '../components/TestimonialCard.astro';
+import { useTranslations } from '../i18n/utils';
+import servicesData from '../data/services.json';
+import testimonialsData from '../data/testimonials.json';
+
+const lang = 'en';
+const t = useTranslations(lang);
+
+const featuredServices = servicesData.categories
+  .flatMap(cat => cat.services)
+  .filter(s => s.featured)
+  .slice(0, 4);
+---
+
+<PageLayout title={t('nav.home')} lang={lang}>
+  <Hero lang={lang} />
+  <CategoryQuickLinks lang={lang} />
+
+  <!-- Featured Services -->
+  <section class="py-16 sm:py-20 bg-cream">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-heading font-bold text-charcoal mb-3">
+          {t('services.title')}
+        </h2>
+        <p class="text-muted text-lg max-w-2xl mx-auto">
+          {t('services.subtitle')}
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {featuredServices.map(service => (
+          <ServiceCard service={service} lang={lang} />
+        ))}
+      </div>
+
+      <div class="text-center mt-10">
+        <a href="/services" class="btn-outline">
+          {t('services.viewAll')}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-16 sm:py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-heading font-bold text-charcoal mb-3">
+          {t('testimonials.title')}
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {testimonialsData.testimonials.map(testimonial => (
+          <TestimonialCard testimonial={testimonial} lang={lang} />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 sm:py-20 bg-charcoal text-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-3xl sm:text-4xl font-heading font-bold mb-4">
+        Ready to Look Your Best?
+      </h2>
+      <p class="text-white/70 text-lg mb-8 max-w-2xl mx-auto">
+        Visit Salon One Dawei or book your appointment today. Walk-ins welcome!
+      </p>
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="/contact" class="btn-primary text-base px-8 py-4">
+          {t('contact.title')}
+        </a>
+        <a href="/services" class="btn-outline border-white/30 text-white hover:bg-white hover:text-charcoal text-base px-8 py-4">
+          {t('services.viewAll')}
+        </a>
+      </div>
+    </div>
+  </section>
+</PageLayout>

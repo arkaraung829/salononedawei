@@ -1,0 +1,62 @@
+---
+import type { Lang } from '../i18n/utils';
+import { localize, useTranslations } from '../i18n/utils';
+
+interface Props {
+  product: {
+    id: string;
+    name: { en: string; my: string };
+    description: { en: string; my: string };
+    brand: string;
+    price: { amount: number; currency: string };
+    image: string;
+    inStock: boolean;
+  };
+  lang?: Lang;
+}
+
+const { product, lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
+const imageSrc = product.image;
+---
+
+<div class="card group">
+  <!-- Image -->
+  <div class="relative aspect-square bg-beige overflow-hidden">
+    <img
+      src={imageSrc}
+      alt={localize(product.name, lang)}
+      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+      loading="lazy"
+    />
+    {!product.inStock && (
+      <div class="absolute inset-0 bg-charcoal/40 flex items-center justify-center">
+        <span class="bg-charcoal text-white px-3 py-1 rounded-full text-xs font-semibold uppercase">
+          {t('products.outOfStock')}
+        </span>
+      </div>
+    )}
+  </div>
+
+  <!-- Content -->
+  <div class="p-4 sm:p-5">
+    <p class="text-xs text-muted uppercase tracking-wider mb-1">{product.brand}</p>
+    <h3 class="font-heading font-semibold text-charcoal text-base mb-1.5">
+      {localize(product.name, lang)}
+    </h3>
+    <p class="text-muted text-sm leading-relaxed mb-3 line-clamp-2">
+      {localize(product.description, lang)}
+    </p>
+    <div class="flex items-center justify-between">
+      <span class="font-semibold text-gold">
+        {new Intl.NumberFormat('en-US').format(product.price.amount)} {product.price.currency}
+      </span>
+      {product.inStock && (
+        <span class="text-xs text-emerald-600 flex items-center gap-1">
+          <span class="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
+          {t('products.inStock')}
+        </span>
+      )}
+    </div>
+  </div>
+</div>

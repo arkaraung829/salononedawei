@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#F0E6D6"/>
+      <stop offset="100%" style="stop-color:#FAF7F2"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="45%" r="40%">
+      <stop offset="0%" style="stop-color:#2D2D2D;stop-opacity:0.06"/>
+      <stop offset="100%" style="stop-color:#2D2D2D;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <ellipse cx="400" cy="270" rx="280" ry="230" fill="url(#glow)"/>
+  <!-- Electric clipper icon -->
+  <g transform="translate(400,270)" stroke="#2D2D2D" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="-18" y="-50" width="36" height="60" rx="6"/>
+    <rect x="-14" y="10" width="28" height="35" rx="3"/>
+    <line x1="-10" y1="-35" x2="10" y2="-35"/>
+    <line x1="-10" y1="-25" x2="10" y2="-25"/>
+    <line x1="-8" y1="18" x2="8" y2="18"/>
+    <line x1="-8" y1="26" x2="8" y2="26"/>
+    <line x1="-8" y1="34" x2="8" y2="34"/>
+  </g>
+  <text x="400" y="380" text-anchor="middle" font-family="Georgia, serif" font-size="18" fill="#2D2D2D" opacity="0.5">Men's Cut</text>
+</svg>

@@ -1,0 +1,16 @@
+---
+interface Props {
+  type: 'popular' | 'new';
+}
+
+const { type } = Astro.props;
+const labels = { popular: 'Popular', new: 'New' };
+const colors = {
+  popular: 'bg-gold text-white',
+  new: 'bg-blush text-charcoal'
+};
+---
+
+<span class:list={['px-2.5 py-1 text-xs font-semibold uppercase tracking-wider rounded-full', colors[type]]}>
+  {labels[type]}
+</span>

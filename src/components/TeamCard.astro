@@ -1,0 +1,44 @@
+---
+import type { Lang } from '../i18n/utils';
+import { localize } from '../i18n/utils';
+
+interface Props {
+  member: {
+    id: string;
+    name: { en: string; my: string };
+    role: { en: string; my: string };
+    bio: { en: string; my: string };
+    image: string;
+    specialties: string[];
+  };
+  lang?: Lang;
+}
+
+const { member, lang = 'en' } = Astro.props;
+const imageSrc = member.image;
+---
+
+<div class="card text-center group">
+  <!-- Photo -->
+  <div class="relative aspect-[3/4] bg-beige overflow-hidden">
+    <img
+      src={imageSrc}
+      alt={localize(member.name, lang)}
+      class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+      loading="lazy"
+    />
+  </div>
+
+  <!-- Info -->
+  <div class="p-5 sm:p-6">
+    <h3 class="font-heading font-semibold text-lg text-charcoal mb-1">
+      {localize(member.name, lang)}
+    </h3>
+    <p class="text-gold text-sm font-medium mb-3">
+      {localize(member.role, lang)}
+    </p>
+    <p class="text-muted text-sm leading-relaxed">
+      {localize(member.bio, lang)}
+    </p>
+  </div>
+</div>

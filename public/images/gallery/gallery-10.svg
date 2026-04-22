@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FAF7F2"/>
+      <stop offset="100%" style="stop-color:#E8D5B8"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="48%" r="40%">
+      <stop offset="0%" style="stop-color:#C9A96E;stop-opacity:0.12"/>
+      <stop offset="100%" style="stop-color:#C9A96E;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="800" fill="url(#bg)"/>
+  <ellipse cx="400" cy="380" rx="280" ry="280" fill="url(#glow)"/>
+  <!-- Perm - curling rod with wavy hair -->
+  <g transform="translate(400,365)" stroke="#C9A96E" stroke-width="2.5" fill="none" stroke-linecap="round">
+    <rect x="-6" y="-35" width="12" height="40" rx="6"/>
+    <line x1="-6" y1="-22" x2="6" y2="-22" stroke-width="1.5"/>
+    <line x1="-6" y1="-10" x2="6" y2="-10" stroke-width="1.5"/>
+    <path d="M-30-22 Q-22-35-30-45 Q-38-55-30-65" stroke-width="2" opacity="0.4"/>
+    <path d="M-42-15 Q-34-28-42-38 Q-50-48-42-58" stroke-width="2" opacity="0.3"/>
+    <path d="M30-22 Q38-35 30-45 Q22-55 30-65" stroke-width="2" opacity="0.4"/>
+    <path d="M42-15 Q50-28 42-38 Q34-48 42-58" stroke-width="2" opacity="0.3"/>
+  </g>
+  <text x="400" y="460" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#2D2D2D" opacity="0.4">Perm</text>
+</svg>

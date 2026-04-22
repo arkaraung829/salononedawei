@@ -1,0 +1,32 @@
+---
+import KioskLayout from '../../layouts/KioskLayout.astro';
+import ServiceCategoryTabs from '../../components/ServiceCategoryTabs.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import { localize } from '../../i18n/utils';
+import servicesData from '../../data/services.json';
+
+const lang = 'en';
+---
+
+<KioskLayout title="Services" lang={lang} activeTab="services">
+  <ServiceCategoryTabs lang={lang} kioskMode={true} />
+
+  <div>
+    {servicesData.categories.map(cat => (
+      <section
+        id={cat.id}
+        data-category-section={cat.id}
+        class="py-6 px-4 sm:px-6 border-b border-beige last:border-b-0"
+      >
+        <h2 class="text-xl font-heading font-bold text-charcoal mb-4">
+          {localize(cat.name, lang)}
+        </h2>
+        <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          {cat.services.map(service => (
+            <ServiceCard service={service} lang={lang} kioskMode={true} />
+          ))}
+        </div>
+      </section>
+    ))}
+  </div>
+</KioskLayout>

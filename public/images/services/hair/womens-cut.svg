@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FAF7F2"/>
+      <stop offset="100%" style="stop-color:#F0E6D6"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="45%">
+      <stop offset="0%" style="stop-color:#C9A96E;stop-opacity:0.12"/>
+      <stop offset="100%" style="stop-color:#C9A96E;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <ellipse cx="400" cy="300" rx="300" ry="250" fill="url(#glow)"/>
+  <!-- Scissors icon -->
+  <g transform="translate(400,280)" stroke="#C9A96E" stroke-width="3" fill="none" stroke-linecap="round">
+    <ellipse cx="-28" cy="-40" rx="18" ry="22"/>
+    <ellipse cx="28" cy="-40" rx="18" ry="22"/>
+    <line x1="-14" y1="-22" x2="14" y2="22"/>
+    <line x1="14" y1="-22" x2="-14" y2="22"/>
+  </g>
+  <!-- Label -->
+  <text x="400" y="380" text-anchor="middle" font-family="Georgia, serif" font-size="18" fill="#2D2D2D" opacity="0.5">Women's Cut</text>
+</svg>

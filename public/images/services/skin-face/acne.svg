@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" style="stop-color:#F5F0FA"/>
+      <stop offset="100%" style="stop-color:#DDD0E8"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="48%" r="38%">
+      <stop offset="0%" style="stop-color:#9B7CB8;stop-opacity:0.1"/>
+      <stop offset="100%" style="stop-color:#9B7CB8;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <ellipse cx="400" cy="288" rx="260" ry="210" fill="url(#glow)"/>
+  <!-- Face with clear skin / shield icon -->
+  <g transform="translate(400,260)" stroke="#9B7CB8" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Shield shape representing protection -->
+    <path d="M0-50 Q-35-45-40-20 Q-42 15-20 35 Q0 50 0 50 Q0 50 20 35 Q42 15 40-20 Q35-45 0-50Z" fill="#9B7CB8" opacity="0.06"/>
+    <path d="M0-50 Q-35-45-40-20 Q-42 15-20 35 Q0 50 0 50 Q0 50 20 35 Q42 15 40-20 Q35-45 0-50Z"/>
+    <!-- Checkmark inside -->
+    <path d="M-12 5 L-4 14 L15-10" stroke-width="3"/>
+    <!-- Small sparkles around -->
+    <g stroke-width="1.5" opacity="0.3">
+      <line x1="-50" y1="-30" x2="-50" y2="-38"/>
+      <line x1="-54" y1="-34" x2="-46" y2="-34"/>
+      <line x1="50" y1="-25" x2="50" y2="-33"/>
+      <line x1="46" y1="-29" x2="54" y2="-29"/>
+      <line x1="40" y1="30" x2="40" y2="22"/>
+      <line x1="36" y1="26" x2="44" y2="26"/>
+    </g>
+  </g>
+  <text x="400" y="385" text-anchor="middle" font-family="Georgia, serif" font-size="18" fill="#2D2D2D" opacity="0.5">Acne Treatment</text>
+</svg>

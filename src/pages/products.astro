@@ -1,0 +1,118 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import ProductCard from '../components/ProductCard.astro';
+import { useTranslations, localize } from '../i18n/utils';
+import productsData from '../data/products.json';
+
+const lang = 'en';
+const t = useTranslations(lang);
+
+// Group products by category
+const productsByCategory = productsData.categories.map(cat => ({
+  ...cat,
+  products: productsData.products.filter(p => p.category === cat.id)
+})).filter(cat => cat.products.length > 0);
+---
+
+<PageLayout title={t('nav.products')} lang={lang}>
+  <section class="bg-beige py-12 sm:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-charcoal mb-3">
+        {t('products.title')}
+      </h1>
+      <p class="text-muted text-lg max-w-2xl mx-auto">
+        {t('products.subtitle')}
+      </p>
+    </div>
+  </section>
+
+  <!-- Sticky scroll tabs -->
+  <div class="sticky top-16 sm:top-20 z-40 bg-cream/95 backdrop-blur-sm border-b border-beige">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex gap-1 overflow-x-auto py-3 scrollbar-hide">
+        {productsByCategory.map((cat, i) => (
+          <a
+            href={`#prod-${cat.id}`}
+            data-prod-tab={cat.id}
+            class:list={['prod-tab flex items-center px-4 py-2.5 rounded-full text-sm font-medium whitespace-nowrap transition-all min-h-[44px]', i === 0 && 'active']}
+          >
+            {localize(cat.name, lang)}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Products by Category Sections -->
+  <div class="bg-cream">
+    {productsByCategory.map(cat => (
+      <section
+        id={`prod-${cat.id}`}
+        data-prod-section={cat.id}
+        class="py-10 sm:py-14 border-b border-beige last:border-b-0"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="text-2xl sm:text-3xl font-heading font-bold text-charcoal mb-8">
+            {localize(cat.name, lang)}
+          </h2>
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6">
+            {cat.products.map(product => (
+              <ProductCard product={product} lang={lang} />
+            ))}
+          </div>
+        </div>
+      </section>
+    ))}
+  </div>
+</PageLayout>
+
+<style>
+  .prod-tab { color: var(--color-muted); background: transparent; cursor: pointer; border: none; text-decoration: none; }
+  .prod-tab:hover { color: var(--color-charcoal); background: var(--color-beige); }
+  .prod-tab.active { color: white; background: var(--color-gold); }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+</style>
+
+<script>
+  const tabs = document.querySelectorAll('[data-prod-tab]');
+  const sections = document.querySelectorAll('[data-prod-section]');
+  let isClickScrolling = false;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      if (isClickScrolling) return;
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = (entry.target as HTMLElement).dataset.prodSection;
+          setActiveTab(id!);
+        }
+      });
+    },
+    { rootMargin: '-20% 0px -60% 0px', threshold: 0 }
+  );
+  sections.forEach((s) => observer.observe(s));
+
+  function setActiveTab(id: string) {
+    tabs.forEach((tab) => {
+      tab.classList.toggle('active', tab.getAttribute('data-prod-tab') === id);
+    });
+    const activeTab = document.querySelector(`[data-prod-tab="${id}"]`);
+    activeTab?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', (e) => {
+      e.preventDefault();
+      const id = tab.getAttribute('data-prod-tab')!;
+      const section = document.querySelector(`[data-prod-section="${id}"]`);
+      if (section) {
+        isClickScrolling = true;
+        setActiveTab(id);
+        const top = section.getBoundingClientRect().top + window.scrollY - 140;
+        window.scrollTo({ top, behavior: 'smooth' });
+        setTimeout(() => { isClickScrolling = false; }, 800);
+      }
+    });
+  });
+</script>

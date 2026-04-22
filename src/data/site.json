@@ -1,0 +1,24 @@
+{
+  "name": "Salon One Dawei",
+  "tagline": {
+    "en": "Your Beauty Destination in Dawei",
+    "my": "ထားဝယ်ရဲ့ အလှအပ ဦးတည်ရာ"
+  },
+  "phone": "+95-XXX-XXXXXX",
+  "whatsapp": "+95XXXXXXXXX",
+  "email": "hello@salononedawei.com",
+  "address": {
+    "en": "Main Road, Dawei, Tanintharyi Region, Myanmar",
+    "my": "မင်းလမ်းမကြီး၊ ထားဝယ်၊ တနင်္သာရီတိုင်းဒေသကြီး၊ မြန်မာ"
+  },
+  "hours": {
+    "weekdays": { "en": "9:00 AM - 7:00 PM", "my": "မနက် ၉:၀၀ - ညနေ ၇:၀၀" },
+    "saturday": { "en": "9:00 AM - 8:00 PM", "my": "မနက် ၉:၀၀ - ညနေ ၈:၀၀" },
+    "sunday": { "en": "10:00 AM - 5:00 PM", "my": "မနက် ၁၀:၀၀ - ညနေ ၅:၀၀" }
+  },
+  "social": {
+    "tiktok": "https://www.tiktok.com/@salonone.dawei",
+    "facebook": "https://facebook.com/salononedawei"
+  },
+  "coordinates": { "lat": 14.0823, "lng": 98.1915 }
+}

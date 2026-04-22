@@ -1,0 +1,152 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'my';
+const t = useTranslations(lang);
+
+const galleryCategories = [
+  {
+    id: 'hair', name: 'ဆံပင်',
+    images: [
+      { id: 1, alt: 'Hair styling' },
+      { id: 2, alt: 'Hair coloring' },
+      { id: 7, alt: 'Hair straightening' },
+      { id: 10, alt: 'Hair perm' },
+    ]
+  },
+  {
+    id: 'nails', name: 'လက်သည်း',
+    images: [
+      { id: 3, alt: 'Nail art' },
+      { id: 4, alt: 'Gel nails' },
+      { id: 8, alt: 'Manicure' },
+      { id: 12, alt: 'Nail design' },
+    ]
+  },
+  {
+    id: 'skin', name: 'အသားအရေ',
+    images: [
+      { id: 5, alt: 'Facial treatment' },
+      { id: 11, alt: 'Machine treatment' },
+    ]
+  },
+  {
+    id: 'body', name: 'ခန္ဓာကိုယ်',
+    images: [
+      { id: 6, alt: 'Spa treatment' },
+      { id: 9, alt: 'Body massage' },
+    ]
+  }
+];
+---
+
+<PageLayout title={t('nav.gallery')} lang={lang}>
+  <section class="bg-beige py-12 sm:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-charcoal mb-3">
+        {t('gallery.title')}
+      </h1>
+      <p class="text-muted text-lg max-w-2xl mx-auto">
+        {t('gallery.subtitle')}
+      </p>
+    </div>
+  </section>
+
+  <div class="sticky top-16 sm:top-20 z-40 bg-cream/95 backdrop-blur-sm border-b border-beige">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex gap-1 overflow-x-auto py-3 scrollbar-hide">
+        {galleryCategories.map((cat, i) => (
+          <a
+            href={`#gallery-${cat.id}`}
+            data-gallery-tab={cat.id}
+            class:list={['gallery-tab flex items-center px-4 py-2.5 rounded-full text-sm font-medium whitespace-nowrap transition-all min-h-[44px]', i === 0 && 'active']}
+          >
+            {cat.name}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-cream">
+    {galleryCategories.map(cat => (
+      <section
+        id={`gallery-${cat.id}`}
+        data-gallery-section={cat.id}
+        class="py-10 sm:py-14 border-b border-beige last:border-b-0"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 class="text-2xl sm:text-3xl font-heading font-bold text-charcoal mb-8">
+            {cat.name}
+          </h2>
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 sm:gap-4">
+            {cat.images.map(img => (
+              <div class="group cursor-pointer">
+                <div class="relative aspect-square bg-beige rounded-xl overflow-hidden">
+                  <img
+                    src={`/images/gallery/gallery-${img.id}.jpg`}
+                    alt={img.alt}
+                    class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+    ))}
+  </div>
+</PageLayout>
+
+<style>
+  .gallery-tab { color: var(--color-muted); background: transparent; cursor: pointer; border: none; text-decoration: none; }
+  .gallery-tab:hover { color: var(--color-charcoal); background: var(--color-beige); }
+  .gallery-tab.active { color: white; background: var(--color-gold); }
+  .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+</style>
+
+<script>
+  const tabs = document.querySelectorAll('[data-gallery-tab]');
+  const sections = document.querySelectorAll('[data-gallery-section]');
+  let isClickScrolling = false;
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      if (isClickScrolling) return;
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = (entry.target as HTMLElement).dataset.gallerySection;
+          setActiveTab(id!);
+        }
+      });
+    },
+    { rootMargin: '-20% 0px -60% 0px', threshold: 0 }
+  );
+  sections.forEach((s) => observer.observe(s));
+
+  function setActiveTab(id: string) {
+    tabs.forEach((tab) => {
+      tab.classList.toggle('active', tab.getAttribute('data-gallery-tab') === id);
+    });
+    const activeTab = document.querySelector(`[data-gallery-tab="${id}"]`);
+    activeTab?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+  }
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', (e) => {
+      e.preventDefault();
+      const id = tab.getAttribute('data-gallery-tab')!;
+      const section = document.querySelector(`[data-gallery-section="${id}"]`);
+      if (section) {
+        isClickScrolling = true;
+        setActiveTab(id);
+        const top = section.getBoundingClientRect().top + window.scrollY - 140;
+        window.scrollTo({ top, behavior: 'smooth' });
+        setTimeout(() => { isClickScrolling = false; }, 800);
+      }
+    });
+  });
+</script>

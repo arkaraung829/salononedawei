@@ -1,0 +1,50 @@
+---
+import type { Lang } from '../i18n/utils';
+import { localize } from '../i18n/utils';
+import servicesData from '../data/services.json';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'en' } = Astro.props;
+
+const icons: Record<string, string> = {
+  scissors: 'M14.121 14.121L7.05 21.192l-2.172-2.172 7.071-7.071m0 0L3.878 3.879 6.05 1.707l8.071 8.071m0 0l4.243 4.243M10.95 12.343l4.243-4.243m-8.486 8.486l2.172-2.172m4.243-4.243l2.172-2.172',
+  sparkles: 'M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z',
+  heart: 'M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z',
+  leaf: 'M17.657 18.657A8 8 0 016.343 7.343S7 9 9 10c0-2 .5-5 2.986-7C14 5 16.09 5.777 17.656 7.343A7.975 7.975 0 0120 13a7.975 7.975 0 01-2.343 5.657z'
+};
+
+const colors = [
+  'bg-amber-50 text-amber-700 hover:bg-amber-100',
+  'bg-rose-50 text-rose-700 hover:bg-rose-100',
+  'bg-purple-50 text-purple-700 hover:bg-purple-100',
+  'bg-emerald-50 text-emerald-700 hover:bg-emerald-100'
+];
+---
+
+<section class="py-16 sm:py-20 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+      {servicesData.categories.map((cat, i) => (
+        <a
+          href={`${lang === 'my' ? '/my' : ''}/services#${cat.id}`}
+          class:list={['group rounded-2xl p-6 sm:p-8 text-center transition-all duration-300 hover:shadow-lg hover:-translate-y-1', colors[i]]}
+        >
+          <div class="w-14 h-14 sm:w-16 sm:h-16 mx-auto mb-4 rounded-full bg-white/60 flex items-center justify-center group-hover:scale-110 transition-transform">
+            <svg class="w-7 h-7 sm:w-8 sm:h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d={icons[cat.icon]} />
+            </svg>
+          </div>
+          <h3 class="font-heading font-semibold text-lg sm:text-xl mb-2">
+            {localize(cat.name, lang)}
+          </h3>
+          <p class="text-sm opacity-70 leading-relaxed">
+            {localize(cat.description, lang)}
+          </p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

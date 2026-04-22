@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" style="stop-color:#F8E0E5"/>
+      <stop offset="100%" style="stop-color:#FDF5F6"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="46%" r="40%">
+      <stop offset="0%" style="stop-color:#D4848C;stop-opacity:0.1"/>
+      <stop offset="100%" style="stop-color:#D4848C;stop-opacity:0"/>
+    </radialGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg)"/>
+  <ellipse cx="400" cy="280" rx="260" ry="210" fill="url(#glow)"/>
+  <!-- Nail art - nail with designs and tiny brush -->
+  <g transform="translate(400,260)" stroke="#C9A96E" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Large nail shape -->
+    <path d="M-25-5 Q-25-45 0-55 Q25-45 25-5 Z" fill="#D4848C" opacity="0.1"/>
+    <path d="M-25-5 Q-25-45 0-55 Q25-45 25-5"/>
+    <!-- Art patterns on nail -->
+    <circle cx="0" cy="-30" r="5" fill="#C9A96E" opacity="0.3" stroke="none"/>
+    <circle cx="-10" cy="-18" r="3" fill="#D4848C" opacity="0.35" stroke="none"/>
+    <circle cx="10" cy="-20" r="4" fill="#C9A96E" opacity="0.25" stroke="none"/>
+    <path d="M-5-40 Q0-45 5-40 Q3-35-3-35 Z" fill="#D4848C" opacity="0.3" stroke="none"/>
+    <!-- Tiny art brush -->
+    <line x1="30" y1="-50" x2="45" y2="0" stroke-width="2"/>
+    <path d="M28-54 Q30-60 32-54" fill="#C9A96E" opacity="0.4"/>
+  </g>
+  <text x="400" y="380" text-anchor="middle" font-family="Georgia, serif" font-size="18" fill="#2D2D2D" opacity="0.5">Nail Art</text>
+</svg>

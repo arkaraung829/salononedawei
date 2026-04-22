@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #FAF7F2;
+  --color-beige: #F0E6D6;
+  --color-gold: #C9A96E;
+  --color-champagne: #D4AF37;
+  --color-charcoal: #2D2D2D;
+  --color-muted: #6B6B6B;
+  --color-blush: #F5E6E0;
+  --color-white: #FFFFFF;
+
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-myanmar: 'Noto Sans Myanmar', sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    background-color: var(--color-cream);
+    color: var(--color-charcoal);
+    font-family: var(--font-body);
+  }
+  body[data-lang="my"] {
+    font-family: var(--font-myanmar);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+  body[data-lang="my"] h1,
+  body[data-lang="my"] h2,
+  body[data-lang="my"] h3,
+  body[data-lang="my"] h4,
+  body[data-lang="my"] h5,
+  body[data-lang="my"] h6 {
+    font-family: var(--font-myanmar);
+  }
+}
+
+@utility btn-primary {
+  background-color: var(--color-gold);
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: background-color 0.2s;
+  &:hover {
+    background-color: var(--color-champagne);
+  }
+}
+
+@utility btn-outline {
+  border: 2px solid var(--color-gold);
+  color: var(--color-gold);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 0.875rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  &:hover {
+    background-color: var(--color-gold);
+    color: white;
+  }
+}
+
+@utility card {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  overflow: hidden;
+  transition: box-shadow 0.3s;
+  &:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+}

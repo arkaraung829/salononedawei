@@ -1,0 +1,53 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import ServiceCategoryTabs from '../components/ServiceCategoryTabs.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import { useTranslations, localize } from '../i18n/utils';
+import servicesData from '../data/services.json';
+
+const lang = 'en';
+const t = useTranslations(lang);
+---
+
+<PageLayout title={t('nav.services')} lang={lang}>
+  <!-- Page Header -->
+  <section class="bg-beige py-12 sm:py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-charcoal mb-3">
+        {t('services.title')}
+      </h1>
+      <p class="text-muted text-lg max-w-2xl mx-auto">
+        {t('services.subtitle')}
+      </p>
+    </div>
+  </section>
+
+  <ServiceCategoryTabs lang={lang} />
+
+  <!-- Services by Category Sections -->
+  <div class="bg-cream">
+    {servicesData.categories.map(cat => (
+      <section
+        id={cat.id}
+        data-category-section={cat.id}
+        class="py-10 sm:py-14 border-b border-beige last:border-b-0"
+      >
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="mb-8">
+            <h2 class="text-2xl sm:text-3xl font-heading font-bold text-charcoal mb-2">
+              {localize(cat.name, lang)}
+            </h2>
+            <p class="text-muted">
+              {localize(cat.description, lang)}
+            </p>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {cat.services.map(service => (
+              <ServiceCard service={service} lang={lang} />
+            ))}
+          </div>
+        </div>
+      </section>
+    ))}
+  </div>
+</PageLayout>

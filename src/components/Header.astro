@@ -1,0 +1,98 @@
+---
+import type { Lang } from '../i18n/utils';
+import { useTranslations, getSwitchLangPath } from '../i18n/utils';
+
+interface Props {
+  lang?: Lang;
+  currentPath?: string;
+}
+
+const { lang = 'en', currentPath = '/' } = Astro.props;
+const t = useTranslations(lang);
+
+const navItems = [
+  { key: 'nav.home', href: lang === 'my' ? '/my' : '/' },
+  { key: 'nav.services', href: lang === 'my' ? '/my/services' : '/services' },
+  { key: 'nav.products', href: lang === 'my' ? '/my/products' : '/products' },
+  { key: 'nav.about', href: lang === 'my' ? '/my/about' : '/about' },
+  { key: 'nav.gallery', href: lang === 'my' ? '/my/gallery' : '/gallery' },
+  { key: 'nav.contact', href: lang === 'my' ? '/my/contact' : '/contact' },
+];
+
+const switchLangPath = getSwitchLangPath(currentPath, lang);
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-cream/95 backdrop-blur-sm border-b border-beige">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 sm:h-20">
+      <!-- Logo -->
+      <a href={lang === 'my' ? '/my' : '/'} class="flex items-center gap-2">
+        <span class="text-xl sm:text-2xl font-heading font-bold text-charcoal tracking-tight">
+          Salon One<span class="text-gold"> Dawei</span>
+        </span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden md:flex items-center gap-1 lg:gap-2">
+        {navItems.map(item => (
+          <a
+            href={item.href}
+            class="px-3 py-2 text-sm font-medium text-charcoal/80 hover:text-gold transition-colors rounded-lg hover:bg-beige/50"
+          >
+            {t(item.key)}
+          </a>
+        ))}
+      </nav>
+
+      <!-- Right side: Language + Mobile menu -->
+      <div class="flex items-center gap-2">
+        <a
+          href={switchLangPath}
+          class="px-3 py-2 text-sm font-medium text-gold border border-gold/30 rounded-lg hover:bg-gold hover:text-white transition-all min-w-[44px] min-h-[44px] flex items-center justify-center"
+        >
+          {t('lang.switch')}
+        </a>
+
+        <!-- Mobile hamburger -->
+        <button
+          id="mobile-menu-btn"
+          class="md:hidden p-2 text-charcoal hover:text-gold transition-colors min-w-[44px] min-h-[44px] flex items-center justify-center"
+          aria-label="Open menu"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path id="hamburger-icon" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            <path id="close-icon" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div id="mobile-menu" class="hidden md:hidden bg-cream border-t border-beige">
+    <nav class="px-4 py-4 space-y-1">
+      {navItems.map(item => (
+        <a
+          href={item.href}
+          class="block px-4 py-3 text-base font-medium text-charcoal/80 hover:text-gold hover:bg-beige/50 rounded-lg transition-colors"
+        >
+          {t(item.key)}
+        </a>
+      ))}
+    </nav>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const hamburger = document.getElementById('hamburger-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  btn?.addEventListener('click', () => {
+    const isOpen = !menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden');
+    hamburger?.classList.toggle('hidden');
+    closeIcon?.classList.toggle('hidden');
+  });
+</script>

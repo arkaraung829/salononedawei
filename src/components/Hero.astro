@@ -1,0 +1,73 @@
+---
+import type { Lang } from '../i18n/utils';
+import { useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang?: Lang;
+}
+
+const { lang = 'en' } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<section class="relative min-h-[85vh] flex items-center bg-charcoal overflow-hidden">
+  <!-- Background gradient overlay -->
+  <div class="absolute inset-0 bg-gradient-to-r from-charcoal/95 via-charcoal/70 to-charcoal/40"></div>
+
+  <!-- Decorative elements -->
+  <div class="absolute top-0 right-0 w-1/2 h-full bg-beige/5 clip-diagonal"></div>
+  <div class="absolute bottom-0 left-0 w-96 h-96 bg-gold/5 rounded-full -translate-x-1/2 translate-y-1/2"></div>
+  <div class="absolute top-20 right-20 w-64 h-64 bg-gold/5 rounded-full"></div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 sm:py-32">
+    <div class="max-w-2xl">
+      <!-- Subtle label -->
+      <div class="inline-flex items-center gap-2 px-4 py-2 bg-gold/10 rounded-full mb-6">
+        <span class="w-2 h-2 bg-gold rounded-full"></span>
+        <span class="text-gold text-sm font-medium tracking-wide uppercase">Salon One Dawei</span>
+      </div>
+
+      <!-- Heading -->
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-heading font-bold text-white leading-tight mb-6">
+        {t('hero.tagline')}
+      </h1>
+
+      <!-- Subtitle -->
+      <p class="text-lg sm:text-xl text-white/70 leading-relaxed mb-10 max-w-xl">
+        {t('hero.subtitle')}
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-wrap gap-4">
+        <a href={lang === 'my' ? '/my/services' : '/services'} class="btn-primary text-base px-8 py-4">
+          {t('hero.cta')}
+        </a>
+        <a href={lang === 'my' ? '/my/contact' : '/contact'} class="btn-outline border-white/30 text-white hover:bg-white hover:text-charcoal text-base px-8 py-4">
+          {t('contact.title')}
+        </a>
+      </div>
+
+      <!-- Stats -->
+      <div class="flex gap-8 sm:gap-12 mt-12 pt-8 border-t border-white/10">
+        <div>
+          <div class="text-2xl sm:text-3xl font-heading font-bold text-gold">20+</div>
+          <div class="text-sm text-white/50 mt-1">{lang === 'en' ? 'Services' : 'ဝန်ဆောင်မှုများ'}</div>
+        </div>
+        <div>
+          <div class="text-2xl sm:text-3xl font-heading font-bold text-gold">4</div>
+          <div class="text-sm text-white/50 mt-1">{lang === 'en' ? 'Expert Stylists' : 'ကျွမ်းကျင်ပညာရှင်များ'}</div>
+        </div>
+        <div>
+          <div class="text-2xl sm:text-3xl font-heading font-bold text-gold">500+</div>
+          <div class="text-sm text-white/50 mt-1">{lang === 'en' ? 'Happy Clients' : 'ပျော်ရွှင်သော ဖောက်သည်များ'}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .clip-diagonal {
+    clip-path: polygon(30% 0, 100% 0, 100% 100%, 0 100%);
+  }
+</style>

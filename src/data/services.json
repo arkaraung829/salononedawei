@@ -1,0 +1,236 @@
+{
+  "categories": [
+    {
+      "id": "hair",
+      "name": { "en": "Hair", "my": "ဆံပင်" },
+      "icon": "scissors",
+      "description": { "en": "Expert cuts, coloring, styling & treatments", "my": "ကျွမ်းကျင်သော ဆံပင်ညှပ်ခြင်း၊ အရောင်ဆိုးခြင်း၊ ပုံစံဖန်တီးခြင်း" },
+      "services": [
+        {
+          "id": "hair-cut-women",
+          "name": { "en": "Women's Haircut", "my": "အမျိုးသမီး ဆံပင်ညှပ်" },
+          "description": { "en": "Professional cut and styling tailored to your face shape and personal style.", "my": "သင့်မျက်နှာပုံစံနှင့် ကိုယ်ပိုင်စတိုင်အတွက် ပရော်ဖက်ရှင်နယ် ဆံပင်ညှပ်ခြင်း။" },
+          "duration": 45,
+          "price": { "min": 8000, "max": 15000, "currency": "MMK" },
+          "image": "/images/services/hair/womens-cut.jpg",
+          "badge": "popular",
+          "featured": true
+        },
+        {
+          "id": "hair-cut-men",
+          "name": { "en": "Men's Haircut", "my": "အမျိုးသား ဆံပင်ညှပ်" },
+          "description": { "en": "Classic and modern cuts for men, including beard trim.", "my": "အမျိုးသားများအတွက် ဂန္ထဝင်နှင့် ခေတ်မီ ဆံပင်ညှပ်ခြင်း။" },
+          "duration": 30,
+          "price": { "min": 5000, "max": 10000, "currency": "MMK" },
+          "image": "/images/services/hair/mens-cut.jpg",
+          "badge": null,
+          "featured": false
+        },
+        {
+          "id": "hair-coloring",
+          "name": { "en": "Hair Coloring", "my": "ဆံပင်အရောင်ဆိုးခြင်း" },
+          "description": { "en": "Full color, highlights, balayage, and ombre techniques by expert colorists.", "my": "ကျွမ်းကျင်သူများမှ အရောင်အပြည့်၊ ဟိုက်လိုက်၊ ဘာလာယာ့ခ်ျ နှင့် အွမ်ဘရေ နည်းပညာများ။" },
+          "duration": 120,
+          "price": { "min": 25000, "max": 80000, "currency": "MMK" },
+          "image": "/images/services/hair/coloring.jpg",
+          "badge": "popular",
+          "featured": true
+        },
+        {
+          "id": "hair-straightening",
+          "name": { "en": "Hair Straightening", "my": "ဆံပင်ဆန့်တန်းခြင်း" },
+          "description": { "en": "Keratin treatment and permanent straightening for smooth, frizz-free hair.", "my": "ချောမွေ့ပြီး ဖောင်းကြွမှုကင်းသော ဆံပင်အတွက် ကယ်ရာတင် ကုထုံး။" },
+          "duration": 150,
+          "price": { "min": 40000, "max": 120000, "currency": "MMK" },
+          "image": "/images/services/hair/straightening.jpg",
+          "badge": null,
+          "featured": true
+        },
+        {
+          "id": "hair-perm",
+          "name": { "en": "Perm & Curly Treatment", "my": "ပါမာနင့် ကောက်ကောက် ကုထုံး" },
+          "description": { "en": "Beautiful curls and waves with gentle, hair-friendly perm solutions.", "my": "ဆံပင်ကို ထိခိုက်မှုနည်းသော ပါမာ ဖြေရှင်းချက်ဖြင့် လှပသော ကောက်ကောက်များ။" },
+          "duration": 120,
+          "price": { "min": 35000, "max": 100000, "currency": "MMK" },
+          "image": "/images/services/hair/perm.jpg",
+          "badge": null,
+          "featured": false
+        },
+        {
+          "id": "hair-treatment",
+          "name": { "en": "Hair Treatment & Spa", "my": "ဆံပင် ကုထုံး နှင့် စပါ" },
+          "description": { "en": "Deep conditioning, protein treatments, and scalp therapy for healthy hair.", "my": "ကျန်းမာသော ဆံပင်အတွက် အစိုဓာတ်ပေးခြင်း၊ ပရိုတင်း ကုထုံး နှင့် ဦးရေပြား ကုထုံးများ။" },
+          "duration": 60,
+          "price": { "min": 15000, "max": 45000, "currency": "MMK" },
+          "image": "/images/services/hair/treatment.jpg",
+          "badge": null,
+          "featured": false
+        },
+        {
+          "id": "hair-styling",
+          "name": { "en": "Styling & Blowout", "my": "ပုံစံဖန်တီးခြင်း" },
+          "description": { "en": "Professional blow-dry and styling for any occasion — casual to bridal.", "my": "ပွဲတိုင်းအတွက် ပရော်ဖက်ရှင်နယ် ပုံစံဖန်တီးခြင်း — သာမန်မှ မင်္ဂလာဆောင်အထိ။" },
+          "duration": 45,
+          "price": { "min": 10000, "max": 50000, "currency": "MMK" },
+          "image": "/images/services/hair/styling.jpg",
+          "badge": null,
+          "featured": false
+        }
+      ]
+    },
+    {
+      "id": "nails",
+      "name": { "en": "Nails", "my": "လက်သည်း" },
+      "icon": "sparkles",
+      "description": { "en": "Manicure, pedicure, gel, acrylic & nail art", "my": "လက်သည်းခြယ်သခြင်း၊ ဂျယ်လ်၊ အက်ခရစ်လစ် နှင့် လက်သည်းအနုပညာ" },
+      "services": [
+        {
+          "id": "nails-manicure",
+          "name": { "en": "Manicure", "my": "လက်သည်းခြယ်သခြင်း" },
+          "description": { "en": "Classic manicure with nail shaping, cuticle care, and polish.", "my": "လက်သည်းပုံသွင်းခြင်း၊ ကျူတီကယ် ထိန်းသိမ်းခြင်း နှင့် အရောင်ခြယ်ခြင်း။" },
+          "duration": 45,
+          "price": { "min": 8000, "max": 15000, "currency": "MMK" },
+          "image": "/images/services/nails/manicure.jpg",
+          "badge": null,
+          "featured": true
+        },
+        {
+          "id": "nails-pedicure",
+          "name": { "en": "Pedicure", "my": "ခြေသည်းခြယ်သခြင်း" },
+          "description": { "en": "Relaxing pedicure with foot soak, exfoliation, and polish.", "my": "ခြေဖဝါးစိမ်ခြင်း၊ အသားအရေ ခွာခြင်း နှင့် အရောင်ခြယ်ခြင်း။" },
+          "duration": 60,
+          "price": { "min": 10000, "max": 20000, "currency": "MMK" },
+          "image": "/images/services/nails/pedicure.jpg",
+          "badge": null,
+          "featured": false
+        },
+        {
+          "id": "nails-gel",
+          "name": { "en": "Gel Nails", "my": "ဂျယ်လ် လက်သည်း" },
+          "description": { "en": "Long-lasting gel polish with UV curing for a glossy, chip-free finish.", "my": "ချောမွေ့ပြီး ကြာရှည်ခံသော ဂျယ်လ် အရောင်ခြယ်ခြင်း။" },
+          "duration": 75,
+          "price": { "min": 15000, "max": 30000, "currency": "MMK" },
+          "image": "/images/services/nails/gel.jpg",
+          "badge": "popular",
+          "featured": true
+        },
+        {
+          "id": "nails-acrylic",
+          "name": { "en": "Acrylic Nails", "my": "အက်ခရစ်လစ် လက်သည်း" },
+          "description": { "en": "Durable acrylic nail extensions in any length and shape.", "my": "မည်သည့် အရှည်နှင့် ပုံစံမဆို အက်ခရစ်လစ် လက်သည်း တပ်ဆင်ခြင်း။" },
+          "duration": 90,
+          "price": { "min": 20000, "max": 45000, "currency": "MMK" },
+          "image": "/images/services/nails/acrylic.jpg",
+          "badge": null,
+          "featured": false
+        },
+        {
+          "id": "nails-art",
+          "name": { "en": "Nail Art", "my": "လက်သည်း အနုပညာ" },
+          "description": { "en": "Custom nail art designs — from minimal to elaborate, hand-painted artwork.", "my": "စိတ်ကြိုက် လက်သည်း ဒီဇိုင်းများ — ရိုးရိုးမှ ရှုပ်ထွေးသော လက်ရေးချယ်သမှုများ။" },
+          "duration": 60,
+          "price": { "min": 5000, "max": 25000, "currency": "MMK" },
+          "image": "/images/services/nails/nail-art.jpg",
+          "badge": "new",
+          "featured": false
+        }
+      ]
+    },
+    {
+      "id": "skin-face",
+      "name": { "en": "Skin & Face", "my": "အသားအရေ နှင့် မျက်နှာ" },
+      "icon": "heart",
+      "description": { "en": "Facials, machine treatments & skin rejuvenation", "my": "မျက်နှာ ကုထုံး၊ စက် ကုထုံး နှင့် အသားအရေ ပြန်လည်နုပျိုစေခြင်း" },
+      "services": [
+        {
+          "id": "skin-facial-basic",
+          "name": { "en": "Classic Facial", "my": "ဂန္ထဝင် မျက်နှာ ကုထုံး" },
+          "description": { "en": "Deep cleansing facial with extraction, mask, and moisturizing treatment.", "my": "အနက်ရှိုင်း သန့်စင်ခြင်း၊ မျက်နှာဖုံး နှင့် အစိုဓာတ်ပေးခြင်း ကုထုံး။" },
+          "duration": 60,
+          "price": { "min": 15000, "max": 30000, "currency": "MMK" },
+          "image": "/images/services/skin-face/facial.jpg",
+          "badge": null,
+          "featured": true
+        },
+        {
+          "id": "skin-machine-treatment",
+          "name": { "en": "Machine Treatment", "my": "စက် ကုထုံး" },
+          "description": { "en": "Advanced treatments using professional devices — microdermabrasion, LED therapy, and ultrasound.", "my": "ပရော်ဖက်ရှင်နယ် စက်ပစ္စည်းများဖြင့် ခေတ်မီ ကုထုံးများ။" },
+          "duration": 75,
+          "price": { "min": 25000, "max": 60000, "currency": "MMK" },
+          "image": "/images/services/skin-face/machine.jpg",
+          "badge": "popular",
+          "featured": true
+        },
+        {
+          "id": "skin-rejuvenation",
+          "name": { "en": "Skin Rejuvenation", "my": "အသားအရေ ပြန်လည်နုပျိုစေခြင်း" },
+          "description": { "en": "Anti-aging and skin renewal treatments for a youthful, radiant complexion.", "my": "နုပျိုပြီး တောက်ပသော အသားအရေအတွက် အိုမင်းမှုကာကွယ်ခြင်း ကုထုံးများ။" },
+          "duration": 90,
+          "price": { "min": 35000, "max": 80000, "currency": "MMK" },
+          "image": "/images/services/skin-face/rejuvenation.jpg",
+          "badge": null,
+          "featured": false
+        },
+        {
+          "id": "skin-acne",
+          "name": { "en": "Acne Treatment", "my": "ဝက်ခြံ ကုထုံး" },
+          "description": { "en": "Targeted acne treatment with extraction, anti-bacterial therapy, and soothing masks.", "my": "ဝက်ခြံ ကုထုံး — ထုတ်ယူခြင်း၊ ဗက်တီးရီးယား ကာကွယ်ခြင်း နှင့် နူးညံ့သော မျက်နှာဖုံးများ။" },
+          "duration": 60,
+          "price": { "min": 20000, "max": 45000, "currency": "MMK" },
+          "image": "/images/services/skin-face/acne.jpg",
+          "badge": null,
+          "featured": false
+        }
+      ]
+    },
+    {
+      "id": "body",
+      "name": { "en": "Body", "my": "ခန္ဓာကိုယ်" },
+      "icon": "leaf",
+      "description": { "en": "Massage, spa, body contouring & relaxation", "my": "အနှိပ်၊ စပါ၊ ခန္ဓာကိုယ်ပုံသွင်းခြင်း နှင့် အနားယူခြင်း" },
+      "services": [
+        {
+          "id": "body-massage",
+          "name": { "en": "Full Body Massage", "my": "ခန္ဓာကိုယ်အပြည့် အနှိပ်" },
+          "description": { "en": "Relaxing full-body massage to relieve stress and tension.", "my": "စိတ်ဖိစီးမှုနှင့် တင်းကျပ်မှုကို သက်သာစေရန် ခန္ဓာကိုယ်အပြည့် အနှိပ်။" },
+          "duration": 60,
+          "price": { "min": 20000, "max": 40000, "currency": "MMK" },
+          "image": "/images/services/body/massage.jpg",
+          "badge": "popular",
+          "featured": true
+        },
+        {
+          "id": "body-contouring",
+          "name": { "en": "Body Contouring", "my": "ခန္ဓာကိုယ် ပုံသွင်းခြင်း" },
+          "description": { "en": "Non-invasive body sculpting and contouring treatments using advanced machines.", "my": "ခေတ်မီ စက်ပစ္စည်းများဖြင့် ခန္ဓာကိုယ် ပုံသွင်းခြင်း ကုထုံးများ။" },
+          "duration": 90,
+          "price": { "min": 40000, "max": 100000, "currency": "MMK" },
+          "image": "/images/services/body/contouring.jpg",
+          "badge": "new",
+          "featured": true
+        },
+        {
+          "id": "body-scrub",
+          "name": { "en": "Body Scrub & Wrap", "my": "ခန္ဓာကိုယ် ပွတ်တိုက်ခြင်း" },
+          "description": { "en": "Exfoliating body scrub followed by a hydrating or detox body wrap.", "my": "အသားအရေ ခွာခြင်း နှင့် အစိုဓာတ်ပေးခြင်း ခန္ဓာကိုယ် ပတ်ခြင်း။" },
+          "duration": 75,
+          "price": { "min": 25000, "max": 50000, "currency": "MMK" },
+          "image": "/images/services/body/scrub.jpg",
+          "badge": null,
+          "featured": false
+        },
+        {
+          "id": "body-spa-package",
+          "name": { "en": "Spa Package", "my": "စပါ အစီအစဉ်" },
+          "description": { "en": "Complete relaxation package — massage, facial, and body treatment combined.", "my": "အပြည့်အဝ အနားယူမှု အစီအစဉ် — အနှိပ်၊ မျက်နှာကုထုံး နှင့် ခန္ဓာကိုယ်ကုထုံး ပေါင်းစပ်။" },
+          "duration": 150,
+          "price": { "min": 60000, "max": 150000, "currency": "MMK" },
+          "image": "/images/services/body/spa-package.jpg",
+          "badge": null,
+          "featured": false
+        }
+      ]
+    }
+  ]
+}
