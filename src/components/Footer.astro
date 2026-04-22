@@ -7,16 +7,17 @@ interface Props {
   lang?: Lang;
 }
 
-const { lang = 'en' } = Astro.props;
+const { lang = 'my' } = Astro.props;
 const t = useTranslations(lang);
 
+const prefix = lang === 'en' ? '/en' : '';
 const navItems = [
-  { key: 'nav.home', href: lang === 'my' ? '/my' : '/' },
-  { key: 'nav.services', href: lang === 'my' ? '/my/services' : '/services' },
-  { key: 'nav.products', href: lang === 'my' ? '/my/products' : '/products' },
-  { key: 'nav.about', href: lang === 'my' ? '/my/about' : '/about' },
-  { key: 'nav.gallery', href: lang === 'my' ? '/my/gallery' : '/gallery' },
-  { key: 'nav.contact', href: lang === 'my' ? '/my/contact' : '/contact' },
+  { key: 'nav.home', href: prefix || '/' },
+  { key: 'nav.services', href: `${prefix}/services` },
+  { key: 'nav.products', href: `${prefix}/products` },
+  { key: 'nav.about', href: `${prefix}/about` },
+  { key: 'nav.gallery', href: `${prefix}/gallery` },
+  { key: 'nav.contact', href: `${prefix}/contact` },
 ];
 ---
 

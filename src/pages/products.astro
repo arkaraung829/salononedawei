@@ -4,10 +4,9 @@ import ProductCard from '../components/ProductCard.astro';
 import { useTranslations, localize } from '../i18n/utils';
 import productsData from '../data/products.json';
 
-const lang = 'en';
+const lang = 'my';
 const t = useTranslations(lang);
 
-// Group products by category
 const productsByCategory = productsData.categories.map(cat => ({
   ...cat,
   products: productsData.products.filter(p => p.category === cat.id)
@@ -26,7 +25,6 @@ const productsByCategory = productsData.categories.map(cat => ({
     </div>
   </section>
 
-  <!-- Sticky scroll tabs -->
   <div class="sticky top-16 sm:top-20 z-40 bg-cream/95 backdrop-blur-sm border-b border-beige">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex gap-1 overflow-x-auto py-3 scrollbar-hide">
@@ -43,7 +41,6 @@ const productsByCategory = productsData.categories.map(cat => ({
     </div>
   </div>
 
-  <!-- Products by Category Sections -->
   <div class="bg-cream">
     {productsByCategory.map(cat => (
       <section

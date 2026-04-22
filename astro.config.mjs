@@ -10,8 +10,8 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
   i18n: {
-    locales: ['en', 'my'],
-    defaultLocale: 'en',
+    locales: ['my', 'en'],
+    defaultLocale: 'my',
     routing: {
       prefixDefaultLocale: false
     }

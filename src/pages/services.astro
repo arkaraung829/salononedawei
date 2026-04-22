@@ -5,12 +5,11 @@ import ServiceCard from '../components/ServiceCard.astro';
 import { useTranslations, localize } from '../i18n/utils';
 import servicesData from '../data/services.json';
 
-const lang = 'en';
+const lang = 'my';
 const t = useTranslations(lang);
 ---
 
 <PageLayout title={t('nav.services')} lang={lang}>
-  <!-- Page Header -->
   <section class="bg-beige py-12 sm:py-16">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
       <h1 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-bold text-charcoal mb-3">
@@ -24,7 +23,6 @@ const t = useTranslations(lang);
 
   <ServiceCategoryTabs lang={lang} />
 
-  <!-- Services by Category Sections -->
   <div class="bg-cream">
     {servicesData.categories.map(cat => (
       <section

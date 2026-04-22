@@ -7,16 +7,17 @@ interface Props {
   currentPath?: string;
 }
 
-const { lang = 'en', currentPath = '/' } = Astro.props;
+const { lang = 'my', currentPath = '/' } = Astro.props;
 const t = useTranslations(lang);
 
+const prefix = lang === 'en' ? '/en' : '';
 const navItems = [
-  { key: 'nav.home', href: lang === 'my' ? '/my' : '/' },
-  { key: 'nav.services', href: lang === 'my' ? '/my/services' : '/services' },
-  { key: 'nav.products', href: lang === 'my' ? '/my/products' : '/products' },
-  { key: 'nav.about', href: lang === 'my' ? '/my/about' : '/about' },
-  { key: 'nav.gallery', href: lang === 'my' ? '/my/gallery' : '/gallery' },
-  { key: 'nav.contact', href: lang === 'my' ? '/my/contact' : '/contact' },
+  { key: 'nav.home', href: prefix || '/' },
+  { key: 'nav.services', href: `${prefix}/services` },
+  { key: 'nav.products', href: `${prefix}/products` },
+  { key: 'nav.about', href: `${prefix}/about` },
+  { key: 'nav.gallery', href: `${prefix}/gallery` },
+  { key: 'nav.contact', href: `${prefix}/contact` },
 ];
 
 const switchLangPath = getSwitchLangPath(currentPath, lang);
@@ -26,7 +27,7 @@ const switchLangPath = getSwitchLangPath(currentPath, lang);
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex items-center justify-between h-16 sm:h-20">
       <!-- Logo -->
-      <a href={lang === 'my' ? '/my' : '/'} class="flex items-center gap-2">
+      <a href={prefix || '/'} class="flex items-center gap-2">
         <span class="text-xl sm:text-2xl font-heading font-bold text-charcoal tracking-tight">
           Salon One<span class="text-gold"> Dawei</span>
         </span>
